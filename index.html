@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sanctuary & Mind | Holistic Living, Ancestral Healing & Contemplation</title>
+  <meta name="description" content="A curated sanctuary for somatic healing, spirituality, ancestral lineage wisdom, philosophy, and mindful living. Explore essays, free reflection workbooks, and sacred offerings.">
+
+  <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS via CDN with customized configuration -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          colors: {
+            stone: {
+              50: '#fafaf9',
+              100: '#f5f5f4',
+              200: '#e7e5e4',
+              300: '#d6d3d1',
+              400: '#a8a29e',
+              500: '#78716c',
+              600: '#57534e',
+              700: '#44403c',
+              800: '#292524',
+              900: '#1c1917',
+              950: '#0c0a09',
+            },
+            amber: {
+              50: '#fffbeb',
+              100: '#fef3c7',
+              200: '#fde68a',
+              300: '#fcd34d',
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706',
+              700: '#b45309',
+              800: '#92400e',
+              900: '#78350f',
+              950: '#451a03',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="assets/css/custom.css">
+</head>
+<body class="bg-[#faf8f5] text-stone-800 dark:bg-stone-950 dark:text-stone-100 min-h-screen flex flex-col transition-colors duration-300">
+
+  <!-- Top Reading Progress Indicator -->
+  <div class="fixed top-0 left-0 w-full h-[3px] bg-transparent z-50">
+    <div id="reading-progress" class="h-full bg-gradient-to-r from-amber-600 via-amber-500 to-amber-700 w-0"></div>
+  </div>
+
+  <!-- Announcement / Sacred Dispatch Bar -->
+  <div class="bg-stone-900 text-stone-200 dark:bg-black dark:text-stone-300 text-xs py-2 px-4 text-center border-b border-stone-800/80 flex items-center justify-center gap-2">
+    <span class="inline-block w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+    <span>Autumn Equinox Inscriptions: New free ancestral reflection guide available</span>
+    <button onclick="window.SanctuaryApp.openActionModal('download-modal', 'The Ancestral Lineage & Somatic Harmony Workbook')" class="underline text-amber-300 hover:text-amber-200 ml-1 font-medium cursor-pointer">
+      Download Guide →
+    </button>
+  </div>
+
+  <!-- Header Navigation -->
+  <header class="sticky top-0 z-40 glass-panel border-b border-stone-200/80 dark:border-stone-800 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo & Brand -->
+        <a href="#" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-amber-700 to-amber-900 flex items-center justify-center text-amber-200 shadow-md shadow-amber-900/20 group-hover:scale-105 transition-transform">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+            </svg>
+          </div>
+          <div>
+            <span class="font-serif text-2xl font-bold tracking-tight text-stone-900 dark:text-stone-50 group-hover:text-amber-800 dark:group-hover:text-amber-300 transition-colors">
+              SANCTUARY & MIND
+            </span>
+            <span class="block text-[10px] tracking-[0.2em] uppercase font-semibold text-stone-500 dark:text-stone-400">
+              Optimal Living • Healing • Contemplation
+            </span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-stone-600 dark:text-stone-300">
+          <a href="#blog-section" class="hover:text-amber-700 dark:hover:text-amber-300 transition">Essays & Articles</a>
+          <a href="#resources-offerings-section" class="hover:text-amber-700 dark:hover:text-amber-300 transition flex items-center gap-1.5 text-amber-800 dark:text-amber-300 font-semibold">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+            Resources & Offerings
+          </a>
+          <button type="button" onclick="window.SanctuaryApp.openActionModal('quiz-modal')" class="hover:text-amber-700 dark:hover:text-amber-300 transition cursor-pointer">
+            Wellness Quiz
+          </button>
+          <a href="#newsletter-section" class="hover:text-amber-700 dark:hover:text-amber-300 transition">Newsletter</a>
+        </nav>
+
+        <!-- Right Action Controls -->
+        <div class="flex items-center gap-3">
+          
+          <!-- Bookmarks Sanctuary Drawer Button -->
+          <button 
+            type="button" 
+            onclick="window.SanctuaryApp.openBookmarksModal()" 
+            class="relative p-2.5 rounded-full text-stone-600 hover:text-stone-900 dark:text-stone-300 dark:hover:text-white hover:bg-stone-100 dark:hover:bg-stone-800 transition cursor-pointer"
+            title="Saved Essays"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+            </svg>
+            <span id="bookmark-count" class="hidden absolute top-1 right-1 w-4 h-4 bg-amber-600 text-white text-[10px] font-bold rounded-full flex items-center justify-center">0</span>
+          </button>
+
+          <!-- Theme Toggle Button -->
+          <button 
+            id="theme-toggle" 
+            type="button" 
+            class="p-2.5 rounded-full text-stone-600 hover:text-stone-900 dark:text-stone-300 dark:hover:text-white hover:bg-stone-100 dark:hover:bg-stone-800 transition cursor-pointer"
+            title="Toggle Light/Dark Theme"
+          >
+            <!-- Sun Icon (shown in dark mode) -->
+            <svg class="w-5 h-5 hidden dark:block text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+            </svg>
+            <!-- Moon Icon (shown in light mode) -->
+            <svg class="w-5 h-5 block dark:hidden text-stone-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+            </svg>
+          </button>
+
+          <!-- Book a Session CTA Button -->
+          <button 
+            type="button"
+            onclick="window.SanctuaryApp.openBookingModal('Ancestral & Somatic Restorative Immersion', '$280 / session')"
+            class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-stone-900 hover:bg-stone-800 text-white dark:bg-amber-100 dark:text-stone-900 dark:hover:bg-white text-xs font-semibold tracking-wide uppercase shadow-sm transition active:scale-95 cursor-pointer"
+          >
+            <span>Book Session</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section with Background Banner Image and Front Text -->
+  <section class="relative min-h-[580px] sm:min-h-[640px] lg:min-h-[720px] flex items-center justify-center overflow-hidden border-b border-stone-200/60 dark:border-stone-800/80 bg-stone-900">
+    
+    <!-- Background Image with Ambient Translucent Overlay -->
+    <div 
+      class="absolute inset-0 z-0 bg-cover bg-center overflow-hidden"
+      style="background-image: url('assets/images/hero-banner.jpg');"
+    >
+      <img 
+        src="assets/images/hero-banner.jpg" 
+        alt="Sanctuary & Mind - Tranquil Zen Meditation Room with Sunlit Misty Forest" 
+        onerror="this.parentElement.style.backgroundImage='url(https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=1920&q=80)';"
+        class="w-full h-full object-cover object-center transform scale-100 transition-transform duration-1000"
+      />
+      <!-- Gentle Translucent Gradient: Image is brightly visible, text is 100% readable -->
+      <div class="absolute inset-0 bg-gradient-to-b from-stone-950/50 via-stone-950/40 to-stone-950/70 pointer-events-none"></div>
+      <div class="absolute inset-0 bg-black/20 pointer-events-none"></div>
+    </div>
+
+    <!-- Front Content (Text, Headline, Badges, CTAs) -->
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center py-20 sm:py-28">
+      
+      <!-- Inscription Badge -->
+      <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full glass-banner-badge text-amber-300 text-xs font-semibold mb-6 shadow-xl border border-amber-400/30">
+        <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+        <span class="tracking-widest uppercase font-medium">Sanctuary & Mind Editorial • Vol. IV</span>
+        <span class="text-stone-400">|</span>
+        <span class="text-stone-200 font-normal">Autumn Equinox Edition</span>
+      </div>
+
+      <!-- Main Headline in Front -->
+      <h1 class="text-4xl sm:text-5xl lg:text-7xl font-serif font-bold text-white tracking-tight leading-[1.12] mb-6 drop-shadow-lg">
+        Where Ancient Wisdom Meets <br class="hidden sm:inline" />
+        <span class="italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-300 to-amber-100">Modern Wholeness</span>.
+      </h1>
+
+      <!-- Contemplative Subtitle in Front -->
+      <p class="text-stone-200 text-base sm:text-lg lg:text-xl leading-relaxed font-sans font-light max-w-3xl mx-auto mb-8 drop-shadow">
+        A tranquil digital sanctuary dedicated to somatic nervous system recovery, non-dual presence, ancestral lineage healing, depth psychology, and the sovereign art of living well.
+      </p>
+
+      <!-- Primary CTA Buttons in Front -->
+      <div class="flex flex-wrap items-center justify-center gap-3.5 mb-12">
+        <a 
+          href="#blog-section" 
+          class="px-7 py-3 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-stone-950 font-bold text-xs uppercase tracking-wider shadow-xl shadow-amber-900/30 transition transform hover:-translate-y-0.5 active:translate-y-0 inline-flex items-center gap-2 cursor-pointer"
+        >
+          <span>Explore Sacred Essays</span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+
+        <button 
+          type="button" 
+          onclick="window.SanctuaryApp.openActionModal('download-modal', 'The Ancestral Lineage & Somatic Harmony Workbook')" 
+          class="px-5 py-3 rounded-full glass-banner-badge hover:bg-white/20 text-white text-xs font-medium transition inline-flex items-center gap-2 cursor-pointer shadow-lg"
+        >
+          <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          <span>Free Ancestral Workbook</span>
+        </button>
+
+        <button 
+          type="button" 
+          onclick="window.SanctuaryApp.openActionModal('quiz-modal')" 
+          class="px-5 py-3 rounded-full glass-banner-badge hover:bg-white/20 text-amber-200 text-xs font-medium transition inline-flex items-center gap-2 cursor-pointer shadow-lg"
+        >
+          <svg class="w-3.5 h-3.5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+          <span>Archetype Quiz</span>
+        </button>
+
+        <button 
+          type="button" 
+          onclick="window.SanctuaryApp.openActionModal('audio-modal')" 
+          class="px-5 py-3 rounded-full glass-banner-badge hover:bg-white/20 text-stone-200 text-xs font-medium transition inline-flex items-center gap-2 cursor-pointer shadow-lg"
+        >
+          <svg class="w-3.5 h-3.5 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          <span>Listen 432Hz Soundscape</span>
+        </button>
+      </div>
+
+      <!-- Quick Sanctuary Highlights Bar (Inside Banner) -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-4xl mx-auto pt-6 border-t border-white/10 text-left">
+        <div class="glass-banner-badge p-3.5 rounded-xl border border-white/10">
+          <span class="block text-amber-300 font-bold text-sm">12 Categories</span>
+          <span class="text-[11px] text-stone-300 font-light">Somatic, Mind & Lineage</span>
+        </div>
+        <div class="glass-banner-badge p-3.5 rounded-xl border border-white/10">
+          <span class="block text-amber-300 font-bold text-sm">Free Workbooks</span>
+          <span class="text-[11px] text-stone-300 font-light">Interactive PDF guides</span>
+        </div>
+        <div class="glass-banner-badge p-3.5 rounded-xl border border-white/10">
+          <span class="block text-amber-300 font-bold text-sm">432Hz Audio</span>
+          <span class="text-[11px] text-stone-300 font-light">Binaural nervous reset</span>
+        </div>
+        <div class="glass-banner-badge p-3.5 rounded-xl border border-white/10">
+          <span class="block text-amber-300 font-bold text-sm">25,000+ Readers</span>
+          <span class="text-[11px] text-stone-300 font-light">Weekly sacred dispatches</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Curated Wisdom Pillars & Spotlight Essay Section -->
+  <section class="py-12 bg-stone-50/60 dark:bg-stone-900/40 border-b border-stone-200/60 dark:border-stone-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- 4 CURATED WISDOM PILLARS (QUICK JUMP CARDS) -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+        <!-- Pillar 1: Somatic Healing -->
+        <div 
+          onclick="window.SanctuaryApp.selectCategory('healing'); document.getElementById('blog-section').scrollIntoView({behavior: 'smooth'});"
+          class="p-4 sm:p-5 rounded-2xl bg-white dark:bg-stone-900 border border-stone-200/80 dark:border-stone-800 hover:border-amber-500/50 dark:hover:border-amber-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg cursor-pointer group"
+        >
+          <div class="w-9 h-9 rounded-xl bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-300 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+          </div>
+          <h4 class="font-serif font-bold text-stone-900 dark:text-stone-100 text-sm group-hover:text-amber-700 dark:group-hover:text-amber-400 transition-colors">Somatic Healing</h4>
+          <p class="text-[11px] text-stone-500 dark:text-stone-400 mt-1">Vagal reset, trauma release & somatic unwinding</p>
+        </div>
+
+        <!-- Pillar 2: Ancestral Healing -->
+        <div 
+          onclick="window.SanctuaryApp.selectCategory('ancestral-healing'); document.getElementById('blog-section').scrollIntoView({behavior: 'smooth'});"
+          class="p-4 sm:p-5 rounded-2xl bg-white dark:bg-stone-900 border border-stone-200/80 dark:border-stone-800 hover:border-amber-500/50 dark:hover:border-amber-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg cursor-pointer group"
+        >
+          <div class="w-9 h-9 rounded-xl bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-300 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2L4 12h4l-3 6h7v4h2v-4h7l-3-6h4L12 2z"/></svg>
+          </div>
+          <h4 class="font-serif font-bold text-stone-900 dark:text-stone-100 text-sm group-hover:text-amber-700 dark:group-hover:text-amber-400 transition-colors">Ancestral Lineage</h4>
+          <p class="text-[11px] text-stone-500 dark:text-stone-400 mt-1">Epigenetics, constellations & lineage peace</p>
+        </div>
+
+        <!-- Pillar 3: Spirituality & Mind -->
+        <div 
+          onclick="window.SanctuaryApp.selectCategory('spirituality'); document.getElementById('blog-section').scrollIntoView({behavior: 'smooth'});"
+          class="p-4 sm:p-5 rounded-2xl bg-white dark:bg-stone-900 border border-stone-200/80 dark:border-stone-800 hover:border-amber-500/50 dark:hover:border-amber-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg cursor-pointer group"
+        >
+          <div class="w-9 h-9 rounded-xl bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-300 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+          </div>
+          <h4 class="font-serif font-bold text-stone-900 dark:text-stone-100 text-sm group-hover:text-amber-700 dark:group-hover:text-amber-400 transition-colors">Non-Dual Presence</h4>
+          <p class="text-[11px] text-stone-500 dark:text-stone-400 mt-1">Awakening the quiet witness & sacred stillness</p>
+        </div>
+
+        <!-- Pillar 4: Women's Wisdom -->
+        <div 
+          onclick="window.SanctuaryApp.selectCategory('women'); document.getElementById('blog-section').scrollIntoView({behavior: 'smooth'});"
+          class="p-4 sm:p-5 rounded-2xl bg-white dark:bg-stone-900 border border-stone-200/80 dark:border-stone-800 hover:border-amber-500/50 dark:hover:border-amber-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg cursor-pointer group"
+        >
+          <div class="w-9 h-9 rounded-xl bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-300 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2-1.343-2-3-2z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2C9.5 2 8 3.5 8 5.5S9.5 9 12 9s4-1.5 4-3.5S14.5 2 12 2z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15c-2.5 0-4 1.5-4 3.5S9.5 22 12 22s4-1.5 4-3.5-1.5-3.5-4-3.5z"/></svg>
+          </div>
+          <h4 class="font-serif font-bold text-stone-900 dark:text-stone-100 text-sm group-hover:text-amber-700 dark:group-hover:text-amber-400 transition-colors">Women's Wisdom</h4>
+          <p class="text-[11px] text-stone-500 dark:text-stone-400 mt-1">Infradian biology, feminine cycles & sovereignty</p>
+        </div>
+      </div>
+
+      <!-- Spotlight Hero Article Header & Container -->
+      <div class="max-w-5xl mx-auto mb-3">
+        <div class="flex items-center justify-between pb-3 border-b border-stone-200/80 dark:border-stone-800">
+          <div class="flex items-center gap-2.5">
+            <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+            <span class="text-xs font-bold uppercase tracking-widest text-amber-700 dark:text-amber-400">Featured Spotlight Essay</span>
+          </div>
+          <span class="text-xs text-stone-500 dark:text-stone-400 hidden sm:inline">Editor's Sacred Pick of the Week</span>
+        </div>
+      </div>
+
+      <!-- Spotlight Hero Article Container (rendered by app.js) -->
+      <div id="featured-article-container" class="max-w-5xl mx-auto">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Main Blog & Categories Section -->
+  <main id="blog-section" class="flex-grow py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Interactive Category Tabs Navigation Header -->
+      <div class="mb-10">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-6">
+          <div>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-xs uppercase tracking-widest font-bold text-amber-700 dark:text-amber-400">Categories & Exploration</span>
+              <span id="article-count-badge" class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-stone-200/80 dark:bg-stone-800 text-stone-700 dark:text-stone-300">
+                12 Essays Available
+              </span>
+            </div>
+            <h2 id="active-category-title" class="text-3xl lg:text-4xl font-serif font-bold text-stone-900 dark:text-stone-50">
+              Sacred Archive & Essays
+            </h2>
+            <p id="active-category-desc" class="text-sm text-stone-600 dark:text-stone-400 mt-1 max-w-2xl">
+              Explore timeless contemplations spanning ancestral memory, psyche, spiritual insight, and the art of living deeply.
+            </p>
+          </div>
+
+          <!-- Live Search Input -->
+          <div class="relative w-full md:w-80">
+            <input 
+              type="text" 
+              id="search-input" 
+              placeholder="Search essays, tags, topics..." 
+              class="w-full pl-10 pr-4 py-2.5 rounded-full bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 text-sm focus:outline-none focus:ring-2 focus:ring-amber-600/40 text-stone-800 dark:text-stone-100 placeholder-stone-400 shadow-sm"
+            >
+            <svg class="w-4 h-4 text-stone-400 absolute left-3.5 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- The Category Tabs Row with Horizontal Scroll Controls -->
+        <div class="relative group">
+          <!-- Left Scroll Arrow -->
+          <button 
+            id="tabs-scroll-left"
+            type="button"
+            class="hidden md:flex absolute -left-4 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700 shadow-md text-stone-600 dark:text-stone-300 items-center justify-center hover:bg-stone-100 dark:hover:bg-stone-700 transition cursor-pointer"
+            aria-label="Scroll tabs left"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+          </button>
+
+          <!-- Tabs Scroll Container -->
+          <!-- 
+            Categories displayed as tabs:
+            - Healing
+            - Spirituality
+            - Lifestyle and wellness
+            - Women
+            - Ancestral healing
+            - Literature and movies
+            - Religion and mythology
+            - Culture
+            - Psychology
+            - Philosophy
+            - Relationships
+            - Miscellaneous
+            ** Musings tab is removed
+            ** Resources & Offerings tab is integrated under the blogs
+          -->
+          <div 
+            id="category-tabs-container" 
+            class="flex items-center gap-2 overflow-x-auto no-scrollbar py-2 px-1 scroll-smooth"
+          >
+            <!-- Rendered dynamically from data.js -->
+          </div>
+
+          <!-- Right Scroll Arrow -->
+          <button 
+            id="tabs-scroll-right"
+            type="button"
+            class="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700 shadow-md text-stone-600 dark:text-stone-300 items-center justify-center hover:bg-stone-100 dark:hover:bg-stone-700 transition cursor-pointer"
+            aria-label="Scroll tabs right"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Articles Grid -->
+      <div id="articles-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Rendered dynamically from data.js via app.js -->
+      </div>
+
+      <!-- Empty State -->
+      <div id="empty-state" class="hidden text-center py-20 bg-white dark:bg-stone-900 rounded-3xl border border-stone-200 dark:border-stone-800 my-8">
+        <div class="w-16 h-16 rounded-full bg-amber-50 dark:bg-stone-800 text-amber-700 dark:text-amber-400 flex items-center justify-center mx-auto mb-4">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <h3 class="font-serif text-2xl font-bold text-stone-900 dark:text-white mb-2">No Essays Found</h3>
+        <p class="text-sm text-stone-500 dark:text-stone-400 max-w-sm mx-auto mb-6">
+          We couldn't find any articles matching your search query or selected category.
+        </p>
+        <button 
+          type="button" 
+          onclick="window.SanctuaryApp.selectCategory('all'); document.getElementById('search-input').value = '';" 
+          class="px-5 py-2.5 rounded-full bg-stone-900 hover:bg-stone-800 text-white text-xs font-semibold cursor-pointer"
+        >
+          View All Essays
+        </button>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- 
+    ========================================================================
+    RESOURCES AND OFFERINGS SECTION (UNDER THE BLOGS AS IN OPTIMAL HAPPINESS)
+    ========================================================================
+  -->
+  <section id="resources-offerings-section" class="py-20 bg-stone-100/70 dark:bg-stone-900/40 border-t border-b border-stone-200/80 dark:border-stone-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs uppercase tracking-widest font-bold text-amber-700 dark:text-amber-400 block mb-2">
+          Sanctuary Offerings & Tools
+        </span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-stone-900 dark:text-stone-50 leading-tight mb-4">
+          Resources & Sacred Offerings
+        </h2>
+        <p class="text-stone-600 dark:text-stone-400 text-base leading-relaxed">
+          Inspired by the Optimal Happiness blog framework: practical tools, free reflection guides, and private mentorship containers created to translate profound insights into lived transformation.
+        </p>
+      </div>
+
+      <!-- Sub-Tab Category 1: Free Resources & Downloadables -->
+      <div class="mb-20">
+        <div class="flex items-center justify-between mb-8 pb-4 border-b border-stone-200 dark:border-stone-800">
+          <div>
+            <h3 class="text-2xl font-serif font-bold text-stone-900 dark:text-stone-100">
+              1. Free Guides, Audio & Self-Assessments
+            </h3>
+            <p class="text-xs text-stone-500 dark:text-stone-400 mt-1">Directly accessible reflection tools and practices to support your daily journey.</p>
+          </div>
+          <span class="hidden sm:inline-flex text-xs font-semibold px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300">
+            100% Complimentary
+          </span>
+        </div>
+
+        <div id="free-resources-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Rendered dynamically from data.js via app.js -->
+        </div>
+      </div>
+
+      <!-- Sub-Tab Category 2: Private Offerings & Mentorships -->
+      <div>
+        <div class="flex items-center justify-between mb-8 pb-4 border-b border-stone-200 dark:border-stone-800">
+          <div>
+            <h3 class="text-2xl font-serif font-bold text-stone-900 dark:text-stone-100">
+              2. Transformational Offerings & Immersions
+            </h3>
+            <p class="text-xs text-stone-500 dark:text-stone-400 mt-1">Bespoke 1-on-1 somatic containers, contemplative mentorship, and women's council gatherings.</p>
+          </div>
+          <span class="hidden sm:inline-flex text-xs font-semibold px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300">
+            Curated Capacities
+          </span>
+        </div>
+
+        <div id="offerings-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Rendered dynamically from data.js via app.js -->
+        </div>
+      </div>
+
+      <!-- Testimonial / Philosophy Quote Callout -->
+      <div class="mt-16 bg-white dark:bg-stone-900 rounded-3xl p-8 lg:p-12 border border-stone-200/80 dark:border-stone-800 shadow-sm flex flex-col md:flex-row items-center gap-8">
+        <img 
+          src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=300&q=80" 
+          alt="Facilitator" 
+          class="w-24 h-24 rounded-full object-cover border-4 border-amber-600/30 flex-shrink-0"
+        >
+        <div>
+          <blockquote class="font-serif text-lg lg:text-xl italic text-stone-800 dark:text-stone-200 mb-3">
+            "Optimal happiness is not a frantic pursuit of perpetual euphoria; it is the grounded capacity to meet every aspect of human life—its sorrow, beauty, and ancestral lineage—with sovereign peace."
+          </blockquote>
+          <div class="text-xs text-stone-500 dark:text-stone-400">
+            <span class="font-bold text-stone-900 dark:text-stone-100">Dr. Elena Vance</span> • Founder & Lead Facilitator, Sanctuary & Mind
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section id="newsletter-section" class="py-16 bg-white dark:bg-stone-950 border-b border-stone-200 dark:border-stone-800">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <span class="text-xs uppercase tracking-widest font-bold text-amber-700 dark:text-amber-400 block mb-2">
+        The Sacred Dispatch
+      </span>
+      <h3 class="text-3xl sm:text-4xl font-serif font-bold text-stone-900 dark:text-stone-50 mb-3">
+        Receive Weekly Contemplations in Your Inbox
+      </h3>
+      <p class="text-stone-600 dark:text-stone-400 text-sm max-w-xl mx-auto mb-8">
+        Every Sunday dawn: one somatic exercise, one philosophical inquiry, and early notices for private offerings and seasonal circles.
+      </p>
+
+      <form id="newsletter-form" class="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
+        <input 
+          type="email" 
+          placeholder="Enter your sacred email..." 
+          required 
+          class="flex-grow px-5 py-3 rounded-full bg-stone-50 dark:bg-stone-900 border border-stone-300 dark:border-stone-700 text-sm text-stone-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-amber-600/50"
+        >
+        <button 
+          type="submit" 
+          class="px-7 py-3 rounded-full bg-stone-900 hover:bg-stone-800 text-white dark:bg-amber-100 dark:text-stone-900 dark:hover:bg-white text-xs font-semibold uppercase tracking-wider transition active:scale-95 shadow-md cursor-pointer"
+        >
+          Subscribe
+        </button>
+      </form>
+      <p class="text-[11px] text-stone-400 mt-3">Zero spam. Pure thoughtful literature. Unsubscribe whenever you wish.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-stone-950 text-stone-400 py-16 text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
+        
+        <!-- Brand Info -->
+        <div class="lg:col-span-2">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-xl bg-amber-700 flex items-center justify-center text-amber-200">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+            </div>
+            <span class="font-serif text-xl font-bold text-white tracking-wide">SANCTUARY & MIND</span>
+          </div>
+          <p class="text-xs text-stone-400 leading-relaxed max-w-sm mb-6">
+            A sanctuary dedicated to holistic healing, ancestral constellations, psychological depth, and the pursuit of optimal happiness and sacred living.
+          </p>
+          <div class="text-xs text-stone-500">
+            &copy; 2026 Sanctuary & Mind. All Rights Reserved.
+          </div>
+        </div>
+
+        <!-- Category Columns -->
+        <div>
+          <h5 class="text-xs uppercase font-semibold text-stone-200 tracking-wider mb-4">Core Categories</h5>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#blog-section" onclick="window.SanctuaryApp.selectCategory('healing')" class="hover:text-amber-400 transition">Healing</a></li>
+            <li><a href="#blog-section" onclick="window.SanctuaryApp.selectCategory('spirituality')" class="hover:text-amber-400 transition">Spirituality</a></li>
+            <li><a href="#blog-section" onclick="window.SanctuaryApp.selectCategory('lifestyle-wellness')" class="hover:text-amber-400 transition">Lifestyle & Wellness</a></li>
+            <li><a href="#blog-section" onclick="window.SanctuaryApp.selectCategory('women')" class="hover:text-amber-400 transition">Women</a></li>
+            <li><a href="#blog-section" onclick="window.SanctuaryApp.selectCategory('ancestral-healing')" class="hover:text-amber-400 transition">Ancestral Healing</a></li>
+            <li><a href="#blog-section" onclick="window.SanctuaryApp.selectCategory('literature-movies')" class="hover:text-amber-400 transition">Literature & Movies</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="text-xs uppercase font-semibold text-stone-200 tracking-wider mb-4">Explorations</h5>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#blog-section" onclick="window.SanctuaryApp.selectCategory('religion-mythology')" class="hover:text-amber-400 transition">Religion & Mythology</a></li>
+            <li><a href="#blog-section" onclick="window.SanctuaryApp.selectCategory('culture')" class="hover:text-amber-400 transition">Culture</a></li>
+            <li><a href="#blog-section" onclick="window.SanctuaryApp.selectCategory('psychology')" class="hover:text-amber-400 transition">Psychology</a></li>
+            <li><a href="#blog-section" onclick="window.SanctuaryApp.selectCategory('philosophy')" class="hover:text-amber-400 transition">Philosophy</a></li>
+            <li><a href="#blog-section" onclick="window.SanctuaryApp.selectCategory('relationships')" class="hover:text-amber-400 transition">Relationships</a></li>
+            <li><a href="#blog-section" onclick="window.SanctuaryApp.selectCategory('miscellaneous')" class="hover:text-amber-400 transition">Miscellaneous</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="text-xs uppercase font-semibold text-stone-200 tracking-wider mb-4">Resources & Offerings</h5>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#resources-offerings-section" class="hover:text-amber-400 transition">Ancestral Workbook (Free)</a></li>
+            <li><a href="#resources-offerings-section" class="hover:text-amber-400 transition">7 Sacred Audio Meditations</a></li>
+            <li><button type="button" onclick="window.SanctuaryApp.openActionModal('quiz-modal')" class="hover:text-amber-400 transition text-left cursor-pointer">Diagnostic Archetype Quiz</button></li>
+            <li><a href="#resources-offerings-section" class="hover:text-amber-400 transition">1-on-1 Somatic Immersion</a></li>
+            <li><a href="#resources-offerings-section" class="hover:text-amber-400 transition">Sovereign Mind Mentorship</a></li>
+            <li><a href="#resources-offerings-section" class="hover:text-amber-400 transition">Women's Council Circle</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- 
+    ========================================================================
+    MODALS & INTERACTIVE DRAWERS
+    ========================================================================
+  -->
+
+  <!-- Full Article Reading Modal -->
+  <div id="article-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-md hidden flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+    <div class="relative w-full max-w-4xl bg-white dark:bg-stone-900 rounded-3xl shadow-2xl my-8 overflow-hidden max-h-[90vh] flex flex-col">
+      <!-- Close Button -->
+      <button 
+        type="button" 
+        onclick="window.SanctuaryApp.closeModal('article-modal')"
+        class="absolute top-5 right-5 z-20 w-10 h-10 rounded-full bg-black/50 text-white hover:bg-black/80 flex items-center justify-center backdrop-blur-sm transition cursor-pointer"
+        aria-label="Close article"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+
+      <!-- Dynamic Article Container -->
+      <div id="article-modal-content" class="overflow-y-auto flex-grow">
+        <!-- Rendered by app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Bookmarks Modal -->
+  <div id="bookmarks-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="relative w-full max-w-lg bg-white dark:bg-stone-900 rounded-3xl shadow-2xl p-6 sm:p-8 border border-stone-200 dark:border-stone-800">
+      <div class="flex items-center justify-between mb-6 pb-4 border-b border-stone-100 dark:border-stone-800">
+        <div>
+          <h4 class="text-xl font-serif font-bold text-stone-900 dark:text-white">Your Saved Sanctuary</h4>
+          <p class="text-xs text-stone-500">Articles bookmarked for quiet reading.</p>
+        </div>
+        <button 
+          type="button" 
+          onclick="window.SanctuaryApp.closeModal('bookmarks-modal')"
+          class="p-2 rounded-full hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-500 cursor-pointer"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <div id="bookmarks-list" class="space-y-3 max-h-96 overflow-y-auto pr-1">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Download Free Resource Modal -->
+  <div id="download-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="relative w-full max-w-md bg-white dark:bg-stone-900 rounded-3xl shadow-2xl p-8 border border-stone-200 dark:border-stone-800">
+      <button 
+        type="button" 
+        onclick="window.SanctuaryApp.closeModal('download-modal')"
+        class="absolute top-5 right-5 p-2 rounded-full hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-500 cursor-pointer"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+
+      <div class="w-12 h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-950 text-emerald-600 flex items-center justify-center mb-4">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+      </div>
+
+      <span class="text-xs uppercase tracking-wider font-semibold text-emerald-700 dark:text-emerald-400">Complimentary Guide</span>
+      <h4 id="download-modal-title" class="text-xl font-serif font-bold text-stone-900 dark:text-white mt-1 mb-2">
+        The Ancestral Lineage & Somatic Harmony Workbook
+      </h4>
+      <p class="text-xs text-stone-500 dark:text-stone-400 mb-6">
+        Enter your details to receive immediate digital access and a printable high-resolution PDF edition.
+      </p>
+
+      <form onsubmit="event.preventDefault(); window.SanctuaryApp.closeModal('download-modal'); window.SanctuaryApp.showToastMessage('Success! Guide sent to your inbox and digital download started.');" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-stone-700 dark:text-stone-300 mb-1">Your Name</label>
+          <input type="text" required placeholder="Elena" class="w-full px-4 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-sm text-stone-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-amber-600/40">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-stone-700 dark:text-stone-300 mb-1">Email Address</label>
+          <input type="email" required placeholder="elena@example.com" class="w-full px-4 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-sm text-stone-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-amber-600/40">
+        </div>
+        <button type="submit" class="w-full py-3 rounded-xl bg-stone-900 hover:bg-stone-800 text-white dark:bg-emerald-600 dark:hover:bg-emerald-500 font-semibold text-xs uppercase tracking-wider transition cursor-pointer">
+          Download Guide Now (PDF)
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Audio Meditation Preview Modal -->
+  <div id="audio-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="relative w-full max-w-lg bg-white dark:bg-stone-900 rounded-3xl shadow-2xl p-8 border border-stone-200 dark:border-stone-800">
+      <button 
+        type="button" 
+        onclick="window.SanctuaryApp.closeModal('audio-modal')"
+        class="absolute top-5 right-5 p-2 rounded-full hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-500 cursor-pointer"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+
+      <div class="text-center">
+        <div class="w-16 h-16 rounded-2xl bg-amber-100 dark:bg-amber-950 text-amber-700 dark:text-amber-300 flex items-center justify-center mx-auto mb-4">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/></svg>
+        </div>
+
+        <span class="text-xs uppercase tracking-wider font-semibold text-amber-700 dark:text-amber-400">432Hz Ambient Audio Immersion</span>
+        <h4 class="text-2xl font-serif font-bold text-stone-900 dark:text-white mt-1 mb-2">
+          Track 1: Morning Vagal Reset & Ancestral Grounding
+        </h4>
+        <p class="text-xs text-stone-500 dark:text-stone-400 mb-6">
+          Narrated by Dr. Elena Vance • Binaural tones engineered for nervous system calming.
+        </p>
+
+        <!-- Waveform Visualization Mock -->
+        <div class="flex items-center justify-center gap-1.5 h-12 mb-6">
+          <div class="audio-wave-anim w-1.5 bg-amber-600 rounded-full h-4"></div>
+          <div class="audio-wave-anim w-1.5 bg-amber-600 rounded-full h-8"></div>
+          <div class="audio-wave-anim w-1.5 bg-amber-600 rounded-full h-12"></div>
+          <div class="audio-wave-anim w-1.5 bg-amber-600 rounded-full h-6"></div>
+          <div class="audio-wave-anim w-1.5 bg-amber-600 rounded-full h-10"></div>
+          <div class="audio-wave-anim w-1.5 bg-amber-600 rounded-full h-5"></div>
+          <div class="audio-wave-anim w-1.5 bg-amber-600 rounded-full h-9"></div>
+        </div>
+
+        <button 
+          id="play-audio-sample-btn"
+          type="button"
+          onclick="window.SanctuaryApp.toggleAudioSample()"
+          class="w-full py-3.5 rounded-full bg-amber-600 hover:bg-amber-700 text-white font-medium text-sm transition shadow-md flex items-center justify-center gap-2 cursor-pointer mb-3"
+        >
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          <span>Play Audio Sample (3:45)</span>
+        </button>
+
+        <button 
+          type="button" 
+          onclick="window.SanctuaryApp.closeModal('audio-modal'); window.SanctuaryApp.showToastMessage('Downloading full 7-track audio meditation album zip...');"
+          class="text-xs text-stone-500 hover:text-stone-800 dark:hover:text-stone-200 underline"
+        >
+          Download Full Free Audio Album (MP3 + FLAC)
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Archetype & Diagnostic Quiz Modal -->
+  <div id="quiz-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="relative w-full max-w-xl bg-white dark:bg-stone-900 rounded-3xl shadow-2xl p-8 border border-stone-200 dark:border-stone-800">
+      <button 
+        type="button" 
+        onclick="window.SanctuaryApp.closeModal('quiz-modal')"
+        class="absolute top-5 right-5 p-2 rounded-full hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-500 cursor-pointer"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+
+      <div id="quiz-container">
+        <!-- Rendered by app.js initQuiz -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Booking Inquiry Modal -->
+  <div id="booking-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="relative w-full max-w-lg bg-white dark:bg-stone-900 rounded-3xl shadow-2xl p-8 border border-stone-200 dark:border-stone-800">
+      <button 
+        type="button" 
+        onclick="window.SanctuaryApp.closeModal('booking-modal')"
+        class="absolute top-5 right-5 p-2 rounded-full hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-500 cursor-pointer"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+
+      <span class="text-xs uppercase tracking-wider font-semibold text-amber-700 dark:text-amber-400">Sanctuary Container</span>
+      <h4 id="booking-service-title" class="text-2xl font-serif font-bold text-stone-900 dark:text-white mt-1">
+        Ancestral & Somatic Restorative Immersion
+      </h4>
+      <div id="booking-service-price" class="text-xs font-semibold text-stone-500 mb-6">
+        $280 / session
+      </div>
+
+      <form onsubmit="event.preventDefault(); window.SanctuaryApp.closeModal('booking-modal'); window.SanctuaryApp.showToastMessage('Application submitted. We will review your intake within 24 hours.');" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-stone-700 dark:text-stone-300 mb-1">Your Full Name</label>
+          <input type="text" required placeholder="Elena Vance" class="w-full px-4 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-sm text-stone-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-amber-600/40">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-stone-700 dark:text-stone-300 mb-1">Email Address</label>
+          <input type="email" required placeholder="elena@example.com" class="w-full px-4 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-sm text-stone-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-amber-600/40">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-stone-700 dark:text-stone-300 mb-1">Primary Area of Inquiry</label>
+          <select class="w-full px-4 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-sm text-stone-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-amber-600/40">
+            <option>Ancestral Lineage & Intergenerational Patterns</option>
+            <option>Somatic Nervous System Recalibration</option>
+            <option>Spiritual Mentorship & Non-Dual Presence</option>
+            <option>Women's Infradian Council & Hormonal Wisdom</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-stone-700 dark:text-stone-300 mb-1">Brief Intentions (Optional)</label>
+          <textarea rows="3" placeholder="What brings your heart to this container at this time?" class="w-full px-4 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-sm text-stone-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-amber-600/40"></textarea>
+        </div>
+        <button type="submit" class="w-full py-3.5 rounded-xl bg-stone-900 hover:bg-stone-800 text-white dark:bg-amber-600 dark:hover:bg-amber-500 font-semibold text-xs uppercase tracking-wider transition cursor-pointer">
+          Submit Application & Request Dates
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification Floating Widget -->
+  <div 
+    id="toast" 
+    class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 max-w-sm bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-900 px-5 py-3.5 rounded-2xl shadow-2xl border border-stone-700 dark:border-stone-300 flex items-center gap-3 text-xs"
+  >
+    <div class="w-2 h-2 rounded-full bg-amber-400"></div>
+    <span id="toast-message" class="font-medium">Notification message</span>
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
